@@ -1,62 +1,62 @@
-# Fancy Click Counter - React Learning Project
+# Reaction Bar Project - React Learning Guide 🚀
 
-This project demonstrates the fundamentals of **React State** and **Interactive UI** in a modern, visually appealing way. It's designed for beginners to understand how React updates the User Interface (UI) based on data changes.
+This project is a practical example of building an interactive UI component similar to Instagram's reaction bar. It is designed to help beginners understand core React concepts through hands-on practice.
 
-## 🚀 Key Learning Concepts
+## 📚 What You Will Learn
 
-### 1. `useState` Hook
+By building this project, you will practice and understand the following React concepts:
 
-The core of this app is the `useState` hook:
+### 1. Component Composition
 
-```tsx
-const [count, setCount] = useState(0);
-```
+- **Concept**: Breaking down a complex UI into smaller, reusable pieces.
+- **In this project**:
+  - `ReactionBar`: The main container for buttons.
+  - `CommentModal` & `ShareModal`: Separate components for popup interactions.
+  - `App`: The parent component that orchestrates everything.
 
-- **`count`**: The current value of the counter.
-- **`setCount`**: The function used to update that value.
-- **Why it matters**: In React, you don't modify variables directly (e.g., `count++`). Instead, you use `setCount`, which triggers a "re-render", causing the UI to update with the new number.
+### 2. State Management (`useState`)
 
-### 2. Event Handling
+- **Concept**: Handling data that changes over time within a component.
+- **In this project**:
+  - `isLiked`: Tracks whether the user has liked the post.
+  - `likeCount`: Tracks the number of likes.
+  - `showComments` / `showShare`: Controls the visibility of modals.
+  - `comments`: Manages the list of comments in the modal.
 
-We use `onClick` handlers to make the buttons interactive:
+### 3. Props & Data Flow
 
-```tsx
-const increment = () => setCount((prev) => prev + 1);
-```
+- **Concept**: Passing data and functions from parent to child components.
+- **In this project**:
+  - **Lifting State Up**: We moved `isLiked` from `ReactionBar` to `App` so the parent knows when a like happens.
+  - **Callbacks**: Passing `onLikeToggle` to `ReactionBar` allows the child to trigger changes in the parent's state.
 
-- This function tells React: "Take the previous count value, add 1 to it, and update the state."
+### 4. Conditional Rendering
 
-### 3. Conditional Rendering
+- **Concept**: showing or hiding elements based on state.
+- **In this project**:
+  - The `CommentModal` and `ShareModal` are only rendered (or visible) when their respective state variables (`showComments`, `showShare`) are true.
 
-The "Why does this help...?" section uses conditional rendering:
+### 5. Handling Events
 
-```tsx
-{showInfo && ( ... )}
-```
+- **Concept**: Responding to user interactions like clicks and form submissions.
+- **In this project**:
+  - `onClick`: Used on buttons to toggle state.
+  - `onSubmit`: Used in the comment form to add new comments.
 
-- This means "If `showInfo` is true, render the description. Otherwise, render nothing."
+### 6. Animations (Bonus)
 
-### 4. Modern Libraries
-
-This project introduces two powerful libraries often used in real-world React apps:
-
-- **Framer Motion**: Adds smooth animations (like the number popping in and buttons scaling).
-- **Lucide React**: Provides clean, customizable SVG icons.
+- **Concept**: Adding polish and feedback to user actions.
+- **In this project**:
+  - Using **Framer Motion** to add "pop" effects to the like button and smooth slide-up animations for modals.
 
 ## 🛠️ Tech Stack
 
-- **React**: UI Library
-- **TypeScript**: Type safety (catching errors early)
-- **Tailwind CSS**: Styling (classes like `flex`, `p-4`, `bg-gradient-to-br`)
-- **Vite**: Build tool for fast development
+- **React 19**: The core library.
+- **Tailwind CSS v4**: For utility-first styling.
+- **Framer Motion**: For animations.
+- **Lucide React**: For icons.
 
-## 🏃‍♂️ How to Run
+## 🚀 How to Run
 
-1. Install dependencies:
-   ```bash
-   bun install
-   ```
-2. Start the development server:
-   ```bash
-   bun run dev
-   ```
+1. Install dependencies: `npm install`
+2. Start the dev server: `npm run dev`
